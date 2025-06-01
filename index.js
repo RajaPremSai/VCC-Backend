@@ -50,7 +50,9 @@ yargs(hideBin(process.argv))
         demandOption: true,
       });
     },
-    revertRepo
+    (argv)=>{
+      revertRepo(argv.message)
+    }
   )
   .demandCommand(1, "You need at least one command before moving on")
   .help().argv;
