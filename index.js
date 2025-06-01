@@ -24,7 +24,7 @@ yargs(hideBin(process.argv))
     (argv) => {
       addRepo(argv.file);
     }
-  ) 
+  )
   .command(
     "commit <message>",
     "Commit the staged files with a message",
@@ -34,7 +34,7 @@ yargs(hideBin(process.argv))
         type: "string",
       });
     },
-    (argv)=>{
+    (argv) => {
       commitRepo(argv.message);
     }
   )
@@ -50,8 +50,8 @@ yargs(hideBin(process.argv))
         demandOption: true,
       });
     },
-    (argv)=>{
-      revertRepo(argv.message)
+    (argv) => {
+      revertRepo(argv.commitID);
     }
   )
   .demandCommand(1, "You need at least one command before moving on")
