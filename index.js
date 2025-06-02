@@ -7,6 +7,7 @@ const { commitRepo } = require("./controllers/commit.js");
 const { pushRepo } = require("./controllers/push.js");
 const { pullRepo } = require("./controllers/pull.js");
 const { revertRepo } = require("./controllers/revert.js");
+const mainRouter = require("./routes/main.router.js");
 
 const express = require("express");
 const dotenv = require("dotenv");
@@ -84,9 +85,7 @@ function startServer() {
 
   app.use(cors({ origin: "*" }));
 
-  app.get("/", (req, res) => {
-    res.send("Welcome!!");
-  });
+  app.use(mainRouter);
 
   const httpServer = http.createServer(app);
   const io = new Server(httpServer, {
