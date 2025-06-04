@@ -3,13 +3,10 @@ const issueController = require("../controllers/issueController");
 
 const issueRouter = express.Router();
 
-issueRouter.post("/issueRoutissueer/create", repoController.createRepo);
-issueRouter.get("/repo/all", repoController.getAllRepos);
-issueRouter.get("/repo/:id", repoController.fetchRepoById);
-issueRouter.post("/repo/:name", repoController.fetchRepoByName);
-issueRouter.get("/repo/:userID", repoController.fetchRepoForCurrentUser);
-issueRouter.put("/repo/:id", repoController.updateRepoById);
-issueRouter.delete("/repo/:id", repoController.deleteRepoById);
-issueRouter.patch("/repo/toggle/:id", repoController.toggleVisibilityById);
+issueRouter.post("/issue/create", issueController.createIssue);
+issueRouter.get("/issue/all", issueController.getAllIssues);
+issueRouter.get("/issue/:id", issueController.getIssueById);
+issueRouter.put("/issue/:id", issueController.updateIssueById);
+issueRouter.delete("/issue/:id", issueController.deleteIssueById);
 
 module.exports = issueRouter;
