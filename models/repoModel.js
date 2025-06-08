@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
 const { required } = require("yargs");
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const RepositorySchema = new Schema({
@@ -16,7 +16,7 @@ const RepositorySchema = new Schema({
     type: Boolean,
   },
   owner: {
-    type: Schema,
+    type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
@@ -28,5 +28,6 @@ const RepositorySchema = new Schema({
   ],
 });
 
-const Repository = mongoose.model("Repository", RepositorySchemas);
-export default Repository;
+const Repository = mongoose.model("Repository", RepositorySchema);
+
+module.exports = Repository;
